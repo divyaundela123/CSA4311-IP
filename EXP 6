@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>Student Information</title>
+</head>
+
+<body>
+
+<h2>Student Information Form</h2>
+
+<form onsubmit="saveData(); return false;">
+
+    Name:
+    <input type="text" id="name"><br><br>
+
+    Register Number:
+    <input type="text" id="regno"><br><br>
+
+    Gender:
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br><br>
+
+    Skills:
+    <input type="checkbox" value="HTML" class="skill"> HTML
+    <input type="checkbox" value="CSS" class="skill"> CSS
+    <input type="checkbox" value="JavaScript" class="skill"> JavaScript
+    <br><br>
+
+    Department:
+    <select id="dept">
+        <option>CSE</option>
+        <option>IT</option>
+        <option>ECE</option>
+        <option>EEE</option>
+    </select>
+
+    <br><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+
+</form>
+
+<script>
+function saveData() {
+
+    let name = document.getElementById("name").value;
+    let regno = document.getElementById("regno").value;
+
+    let gender = document.querySelector(
+        'input[name="gender"]:checked'
+    );
+
+    let skills = [];
+
+    document.querySelectorAll(".skill:checked").forEach(function(x) {
+        skills.push(x.value);
+    });
+
+    let dept = document.getElementById("dept").value;
+
+    let data =
+        "Student Information\n" +
+        "Name: " + name + "\n" +
+        "Register Number: " + regno + "\n" +
+        "Gender: " + (gender ? gender.value : "") + "\n" +
+        "Skills: " + skills.join(", ") + "\n" +
+        "Department: " + dept;
+
+    let file = new Blob([data], {type: "text/plain"});
+    let link = document.createElement("a");
+
+    link.href = URL.createObjectURL(file);
+    link.download = "student_details.txt";
+    link.click();
+}
+</script>
+
+</body>
+</html>
