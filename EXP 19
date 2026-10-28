@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>InsureEasy</title>
+    <style>
+        body { font-family: Arial; background: #eef5ff; text-align: center; }
+        header { background: #174a8b; color: white; padding: 20px; }
+        .policy { display: inline-block; background: white; padding: 20px; margin: 10px; }
+        button { background: #174a8b; color: white; padding: 8px; border: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>InsureEasy</h1>
+    <p>Insurance Management System</p>
+</header>
+
+<h2>Available Insurance Policies</h2>
+
+<div class="policy">
+    <h3>Health Insurance</h3>
+    <p>Premium: ₹5,000/year</p>
+    <button onclick="selectPolicy('Health Insurance')">Select</button>
+</div>
+
+<div class="policy">
+    <h3>Auto Insurance</h3>
+    <p>Premium: ₹3,000/year</p>
+    <button onclick="selectPolicy('Auto Insurance')">Select</button>
+</div>
+
+<div class="policy">
+    <h3>Home Insurance</h3>
+    <p>Premium: ₹4,000/year</p>
+    <button onclick="selectPolicy('Home Insurance')">Select</button>
+</div>
+
+<h2>Customer Dashboard</h2>
+<p id="message">Select an insurance policy.</p>
+
+<button onclick="alert('Premium payment reminder: Please pay your premium.')">
+    Payment Reminder
+</button>
+
+<script>
+    function selectPolicy(policy) {
+        document.getElementById("message").innerHTML =
+            "Selected Policy: " + policy;
+    }
+</script>
+
+</body>
+</html>
