@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EasyToll</title>
+    <style>
+        body { font-family: Arial; background: #eef5ff; text-align: center; }
+        header { background: #174a8b; color: white; padding: 20px; }
+        .box { background: white; padding: 20px; margin: 15px auto; width: 300px; }
+        button { background: #174a8b; color: white; padding: 8px; border: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>EasyToll</h1>
+    <p>Online Toll Payment System</p>
+</header>
+
+<div class="box">
+    <h2>User Registration</h2>
+    <input type="text" id="username" placeholder="Enter Name"><br><br>
+    <input type="text" id="vehicle" placeholder="Vehicle Number"><br><br>
+    <button onclick="register()">Register</button>
+</div>
+
+<div class="box">
+    <h2>Buy Toll Ticket</h2>
+
+    <select id="toll">
+        <option value="100">Chennai Toll - ₹100</option>
+        <option value="150">Bangalore Toll - ₹150</option>
+        <option value="200">Madurai Toll - ₹200</option>
+    </select><br><br>
+
+    <button onclick="buyTicket()">Buy Ticket</button>
+    <p id="message"></p>
+</div>
+
+<div class="box">
+    <h2>Toll Pass</h2>
+    <button onclick="generateQR()">Generate QR Code</button>
+    <div id="qrcode"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+    function register() {
+        let name = document.getElementById("username").value;
+        let vehicle = document.getElementById("vehicle").value;
+
+        if (name == "" || vehicle == "") {
+            alert("Please enter all details");
+        } else {
+            alert("Registration successful!");
+        }
+    }
+
+    function buyTicket() {
+        let amount = document.getElementById("toll").value;
+
+        document.getElementById("message").innerHTML =
+            "Toll ticket purchased. Amount: ₹" + amount;
+    }
+
+    function generateQR() {
+        let vehicle = document.getElementById("vehicle").value;
+
+        if (vehicle == "") {
+            alert("Please enter vehicle number first");
+            return;
+        }
+
+        document.getElementById("qrcode").innerHTML = "";
+
+        new QRCode(document.getElementById("qrcode"), {
+            text: "Toll Pass: " + vehicle,
+            width: 128,
+            height: 128
+        });
+    }
+</script>
+
+</body>
+</html>
