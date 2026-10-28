@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Finder</title>
+    <style>
+        body { font-family: Arial; background: #eef5f5; text-align: center; }
+        header { background: teal; color: white; padding: 20px; }
+        .property { display: inline-block; background: white; padding: 20px; margin: 10px; }
+        button { background: teal; color: white; padding: 8px; border: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Home Finder</h1>
+    <p>Find Your Dream Property</p>
+</header>
+
+<h2>Search Properties</h2>
+
+<form onsubmit="searchProperty(event)">
+    <input type="text" id="location" placeholder="Enter Location" required>
+    <select id="type">
+        <option>House</option>
+        <option>Land</option>
+        <option>Apartment</option>
+    </select>
+    <input type="number" id="budget" placeholder="Maximum Budget" required>
+    <button type="submit">Search</button>
+</form>
+
+<p id="result"></p>
+
+<div class="property">
+    <h3>Beautiful House</h3>
+    <p>Location: Chennai</p>
+    <p>Price: ₹50,00,000</p>
+</div>
+
+<div class="property">
+    <h3>Residential Land</h3>
+    <p>Location: Coimbatore</p>
+    <p>Price: ₹20,00,000</p>
+</div>
+
+<script>
+    function searchProperty(event) {
+        event.preventDefault();
+
+        let location = document.getElementById("location").value;
+        let budget = document.getElementById("budget").value;
+
+        document.getElementById("result").innerHTML =
+            "Searching properties in " + location +
+            " within ₹" + budget;
+    }
+</script>
+
+</body>
+</html>
