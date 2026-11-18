@@ -1,0 +1,41 @@
+<?php
+session_start();
+
+if (isset($_POST['apply'])) {
+    $name = $_POST['name'];
+    $type = $_POST['type'];
+    $fee = ($type == "Government Student") ? 0 : 500;
+
+    $_SESSION['pass'] = [
+        "name" => $name,
+        "type" => $type,
+        "fee" => $fee
+    ];
+    echo "Bus Pass Applied Successfully!<br>";
+}
+?>
+
+<h2>Online Bus Pass</h2>
+<form method="post">
+Name: <input name="name" required><br><br>
+
+User Type:
+<select name="type">
+<option>Government Student</option>
+<option>Private Student</option>
+<option>Working Person</option>
+</select><br><br>
+
+<button name="apply">Apply Bus Pass</button>
+</form>
+
+<?php
+if (isset($_SESSION['pass'])) {
+    $p = $_SESSION['pass'];
+    echo "<h3>Bus Pass Details</h3>";
+    echo "Name: ".$p['name']."<br>";
+    echo "Type: ".$p['type']."<br>";
+    echo "Amount: Rs.".$p['fee']."<br>";
+    echo "Pass ID: BP101";
+}
+?>
