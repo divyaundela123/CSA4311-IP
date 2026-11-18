@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ArtistryHub</title>
+<style>
+body {font-family:Arial;background:#f5e6dc;text-align:center;}
+section {padding:20px;margin:15px;background:white;}
+img {width:180px;height:150px;}
+</style>
+</head>
+<body>
+
+<h1>ArtistryHub - Emily Harris</h1>
+<p>Welcome to the world of art!</p>
+
+<section>
+<h2>About the Artist</h2>
+<p>Emily Harris is a creative artist who loves painting.</p>
+</section>
+
+<section>
+<h2>My Portfolio</h2>
+<img src="art1.jpg">
+<img src="art2.jpg">
+<p>Beautiful paintings and creative artwork.</p>
+</section>
+
+<section>
+<h2>Achievements</h2>
+<p>Art Exhibitions - 2024, 2025, 2026</p>
+</section>
+
+<section>
+<h2>News and Updates</h2>
+<p>New artwork exhibition coming soon!</p>
+</section>
+
+<section>
+<h2>Contact</h2>
+<form>
+<input placeholder="Your Name" required>
+<input placeholder="Email" type="email" required>
+<button>Send Message</button>
+</form>
+</section>
+
+</body>
+</html>
