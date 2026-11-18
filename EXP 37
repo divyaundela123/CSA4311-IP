@@ -1,0 +1,62 @@
+<?php
+session_start();
+
+if(isset($_POST['register'])) {
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['role'] = $_POST['role'];
+    echo "Registration Successful!<br>";
+}
+
+if(isset($_POST['login'])) {
+    echo "Welcome ".$_POST['name']."! Login Successful.";
+}
+?>
+
+<h1>IJSSE - International Journal</h1>
+
+<h2>Home</h2>
+<p>International Journal of Scientific and Social Excellence</p>
+<p>Print ISSN: 2395-1443</p>
+<p>Online ISSN: 2395-1451</p>
+
+<h2>About Journal</h2>
+<p>Journal for publishing scientific and research articles.</p>
+
+<h2>Publication Ethics</h2>
+<p>All submitted papers must follow research ethics.</p>
+
+<h2>Editorial Board</h2>
+<p>Editors manage and review submitted articles.</p>
+
+<h2>Register</h2>
+<form method="post">
+<input name="name" placeholder="Your Name" required><br><br>
+<input type="email" placeholder="Email" required><br><br>
+<select name="role">
+<option>Author</option>
+<option>Reviewer</option>
+<option>Editor</option>
+</select><br><br>
+<button name="register">Register</button>
+</form>
+
+<h2>Login</h2>
+<form method="post">
+<input name="name" placeholder="Your Name" required>
+<button name="login">Login</button>
+</form>
+
+<h2>Articles</h2>
+<p>Current Issue | Archive | Most Viewed Articles</p>
+
+<h2>For Authors</h2>
+<p>Submit Manuscript | Author Guidelines | Publication Charges</p>
+
+<h2>For Reviewers</h2>
+<p>Reviewer Registration | Review Articles</p>
+
+<h2>Call for Papers</h2>
+<p>Submit your research papers.</p>
+
+<h2>Contact Us</h2>
+<p>Email: ijsse@example.com</p>
