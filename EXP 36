@@ -1,0 +1,48 @@
+<?php
+if(isset($_POST['register'])) {
+    echo "Registration Successful! Welcome ".$_POST['name'];
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>College Event</title>
+<style>
+body {font-family:Arial;background:#e8f0ff;text-align:center;}
+section {background:white;padding:20px;margin:15px;}
+</style>
+</head>
+<body>
+
+<h1>TECH FEST 2026</h1>
+<p>College Annual Technical Event</p>
+
+<section>
+<h2>Speakers</h2>
+<p>Speaker 1 - Dr. Kumar</p>
+<p>Speaker 2 - Ms. Priya</p>
+</section>
+
+<section>
+<h2>Event Purpose</h2>
+<p>To encourage students in technology and innovation.</p>
+</section>
+
+<section>
+<h2>Venue and Schedule</h2>
+<p>Venue: College Auditorium</p>
+<p>Time: 10 AM to 4 PM</p>
+</section>
+
+<section>
+<h2>Register Now</h2>
+<form method="post">
+<input name="name" placeholder="Your Name" required><br><br>
+<input type="email" placeholder="Your Email" required><br><br>
+<button name="register">Register</button>
+</form>
+</section>
+
+</body>
+</html>
