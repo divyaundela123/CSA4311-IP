@@ -1,0 +1,51 @@
+
+<?php
+session_start();
+
+if (!isset($_SESSION['cases']))
+    $_SESSION['cases'] = [];
+
+if (isset($_POST['submit'])) {
+    $_SESSION['cases'][] = [
+        "owner" => $_POST['owner'],
+        "vehicle" => $_POST['vehicle'],
+        "penalty" => $_POST['penalty'],
+        "fine" => $_POST['fine']
+    ];
+    echo "Case Created Successfully!";
+}
+?>
+
+<h2>Traffic Squad</h2>
+
+<h3>Police - Create Case</h3>
+<form method="post">
+Owner Name: <input name="owner" required><br><br>
+Vehicle Number: <input name="vehicle" required><br><br>
+
+Penalty:
+<select name="penalty">
+<option value="No Helmet">No Helmet</option>
+<option value="Signal Jump">Signal Jump</option>
+<option value="No Licence">No Driving Licence</option>
+</select><br><br>
+
+Fine:
+<select name="fine">
+<option value="500">Rs.500</option>
+<option value="1000">Rs.1000</option>
+<option value="2000">Rs.2000</option>
+</select><br><br>
+
+<button name="submit">Create Case</button>
+</form>
+
+<h3>User - View Challan</h3>
+<?php
+foreach ($_SESSION['cases'] as $c) {
+    echo "Owner: ".$c['owner']."<br>";
+    echo "Vehicle: ".$c['vehicle']."<br>";
+    echo "Penalty: ".$c['penalty']."<br>";
+    echo "Fine: Rs.".$c['fine']."<hr>";
+}
+?>
